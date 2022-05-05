@@ -10,7 +10,7 @@
                 <li><a href="{{ route('app_home') }}" class="nav-link link-secondary px-2">Home</a></li>
                 <li><a href="{{ route('app_about') }}" class="nav-link link-dark px-2">About</a></li>
                 <li><a href="{{ route('app_contact') }}" class="nav-link link-dark px-2">Contact</a></li>
-                <li><a href="{{ route('app_home') }}" class="nav-link link-dark px-2">Products</a></li>
+                <li><a href="{{ route('app_books') }}" class="nav-link link-dark px-2">Books</a></li>
             </ul>
 
             <form class="col-12 col-lg-auto mb-lg-0 me-lg-3 mb-3">

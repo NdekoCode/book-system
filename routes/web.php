@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\BookController;
 use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
 
@@ -18,3 +19,6 @@ Route::get('/', [HomeController::class, 'home'])->name('app_home');
 
 Route::get('/about', [HomeController::class, 'about'])->name('app_about');
 Route::get('/contact-nous', [HomeController::class, 'contact'])->name('app_contact');
+
+Route::get('books', [BookController::class, 'allBooks'])->name('app_books');
+Route::get('books/{id}', [BookController::class, 'show'])->name('app_book');
