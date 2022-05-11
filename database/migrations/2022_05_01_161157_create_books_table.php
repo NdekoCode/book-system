@@ -21,7 +21,7 @@ class CreateBooksTable extends Migration
             $table->integer('category');
             $table->string('description', 250);
             $table->string('image_desc');
-            $table->integer('author')->nullable();
+            $table->foreignId('author_id')->constained();
             $table->float('price');
             $table->timestamps();
         });

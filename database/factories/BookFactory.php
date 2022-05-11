@@ -20,7 +20,7 @@ class BookFactory extends Factory
             'price' => $this->faker->numberBetween(2, 25),
             'description' => $this->faker->sentence(10, 15),
             'image_desc' => "https://picsum.photos/id/" . rand(3, 300) . "/400/500",
-            'author' => $this->faker->numberBetween(1, 15)
+            'author_id' => $this->faker->numberBetween(1, 15)
 
         ];
     }
