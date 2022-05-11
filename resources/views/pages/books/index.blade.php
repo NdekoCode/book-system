@@ -6,9 +6,13 @@
                 <div class="product-card mb-5 rounded p-3 shadow">
                     <div class="product-grid-content">
                         <div class="product-header">
-                            <a href="" class="author">
-                                Book Categorie
-                            </a>
+                            @forelse($book->categories as $cat)
+                                <a href="" class="author">
+                                    {{ $cat->title }}
+                                </a>
+                            @empty
+                                <a href="#" class="alert alert-info text-decoration-none px-2 py-1">Pas de categorie</a>
+                            @endforelse
                             <h3><a href="{{ route('app_book', $book->id) }}">{{ $book->name }}</a></h3>
 
                             <article class="book-detail-hover">

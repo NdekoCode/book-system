@@ -16,6 +16,16 @@
                     </li>
                     <li>Description: {{ $book->description }}</li>
                     <li><strong>Prix: {{ $book->price }}€</strong></li>
+                    <li>Categorie: @forelse($book->categories as $cat)
+                            <p><a
+                                    href="#"><strong>{{ $cat->title }}</strong></a><br />Description:{{ $cat->description }}
+                            </p>
+                        @empty
+                            <p>
+                                <a href="#" class="alert alert-info text-decoration-none px-2 py-1">Pas de categorie</a>
+                            </p>
+                        @endforelse
+                    </li>
                 </ul>
             </div>
         </div>
@@ -28,9 +38,15 @@
                 <div class="product-card mb-5 rounded p-3 shadow">
                     <div class="product-grid-content">
                         <div class="product-header">
-                            <a href="" class="author">
-                                Book Categorie
-                            </a>
+                            <li>Categorie:
+                                @forelse($book->categories as $cat)
+                                    <a href="" class="author">
+                                        <strong>{{ $cat->title }}</strong>
+                                    </a>
+                                @empty
+                                    <a href="#" class="alert alert-info text-decoration-none px-2 py-1">Pas de categorie</a>
+                                @endforelse
+                            </li>
                             <h3><a href="{{ route('app_book', $book->id) }}">{{ $book->name }}</a></h3>
 
                             <article class="book-detail-hover">
