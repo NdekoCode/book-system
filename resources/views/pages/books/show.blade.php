@@ -5,11 +5,15 @@
             <img class="w-100 h-auto" src="{{ $book->image_desc }}" alt="{{ $book->name }}">
         </div>
         <div class="col-md-6 col-sm-12">
-            <div class="card">
-                <div class="card-header">
-                    {{ $book->name }}
+            <div class="card shadow">
+                <div class="card-header bg-white">
+                    <h2>{{ $book->name }}</h2>
                 </div>
                 <ul>
+                    <li>
+                        Auteur: <strong>{{ $book->author->firstname }} {{ $book->author->lastname }}</strong>
+                        <em>{{ $book->author->description }}</em>
+                    </li>
                     <li>Description: {{ $book->description }}</li>
                     <li><strong>Prix: {{ $book->price }}€</strong></li>
                 </ul>

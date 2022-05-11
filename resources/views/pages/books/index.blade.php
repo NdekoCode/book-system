@@ -13,6 +13,7 @@
 
                             <article class="book-detail-hover">
                                 <p>{{ $book->description }}</p>
+                                <p>Par <strong>{{ $book->author->firstname }} {{ $book->author->lastname }}</strong></p>
                             </article>
                         </div>
                         <div class="product-card--body">
