@@ -16,7 +16,10 @@ class AuthorController extends Controller
     public function showAuthor(int $id)
     {
         $author = Author::where('id', $id)->firstOrFail();
-        $books = $author->books->sortByDesc('created_at');
+        // Recupère toutes livres associers à l'auteur id
+        $books = $author->books()->get();
+
+        // ->get() permet de recuperer ou des capter tous les données uniquement de la DB et non les infos qui se situe sur la requete
         return view('pages.authors.author', compact('author', 'books'));
     }
 }

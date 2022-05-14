@@ -9,23 +9,23 @@
                             <div class="rounded-top d-flex flex-row text-white"
                                 style="background-color: #000; height:200px;">
                                 <div class="container">
-                                    <div class="ms-4 d-flex flex-column mt-5" style="width: 150px;">
+                                    <div class="ms-4 d-flex flex-column mt-1" style="width: 150px;">
                                         <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-profiles/avatar-1.webp"
                                             alt="Generic placeholder image" class="img-fluid img-thumbnail mt-4 mb-2"
                                             style="width: 150px; z-index: 1">
-                                        <button type="button" class="btn btn-outline-dark" data-mdb-ripple-color="dark"
+                                        <button type="button" class="btn btn-secondary" data-mdb-ripple-color="dark"
                                             style="z-index: 1;">
                                             Modifier le profile
                                         </button>
                                     </div>
-                                    <div class="ms-3" style="margin-top: 130px;background-color:#000">
-                                        <h5 class="text-white">{{ $author->firstname }} {{ $author->lastname }}</h5>
-                                        <p>New York</p>
-                                    </div>
                                 </div>
                             </div>
-                            <div class="p-4 text-black" style="background-color: #f8f9fa;">
+                            <div class="d-flex justify-content-between align-items-center p-4">
 
+                                <div class="ms-3">
+                                    <h5><strong>{{ $author->firstname }} {{ $author->lastname }}</strong></h5>
+                                    <p>New York</p>
+                                </div>
                                 <div class="container">
                                     <div class="d-flex justify-content-end py-1 text-center">
                                         <div>
@@ -58,15 +58,20 @@
                                     </div>
                                     <div class="row">
                                         @forelse ($books as $book)
-                                            <div class="col-md-6 rounded p-3 shadow">
+                                            <div class="col-md-6">
+                                                <article class="card mb-3 rounded shadow">
+                                                    <div class="card-header border-0 bg-white">
 
-                                                <h3><a href="{{ route('app_book', $book->id) }}">{{ $book->name }}</a>
-                                                </h3>
+                                                        <h3><a
+                                                                href="{{ route('app_book', $book->id) }}">{{ $book->name }}</a>
+                                                        </h3>
+                                                        <img src="{{ $book->image_desc }}" alt="{{ $book->name }}"
+                                                            class="w-100 rounded-3 d-block img-fluid">
+                                                    </div>
 
-                                                <img src="{{ $book->image_desc }}" alt="{{ $book->name }}"
-                                                    class="w-100 rounded-3">
-                                                <article class="book-detail-hover">
-                                                    <p>{{ $book->description }}</p>
+                                                    <div class="card-body">
+                                                        <p>{{ $book->description }}</p>
+                                                    </div>
                                                 </article>
                                             </div>
                                         @empty

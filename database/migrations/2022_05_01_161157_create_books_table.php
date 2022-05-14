@@ -20,9 +20,9 @@ class CreateBooksTable extends Migration
             $table->string('name', 100);
             $table->string('description', 250);
             $table->string('image_desc');
-            $table->foreignId('author_id')->constained();
             $table->float('price');
             $table->timestamps();
+            $table->foreignId('author_id')->constained();
         });
     }
 

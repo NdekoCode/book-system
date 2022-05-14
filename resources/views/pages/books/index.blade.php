@@ -9,11 +9,12 @@
                         <div class="product-grid-content">
                             <div class="product-header">
                                 @forelse($book->categories as $cat)
-                                    <a href="" class="author">
+                                    <a href="#" class="alert alert-info text-decoration-none m-1 px-1 py-1">
                                         {{ $cat->title }}
                                     </a>
                                 @empty
-                                    <a href="#" class="alert alert-info text-decoration-none px-2 py-1">Pas de categorie</a>
+                                    <a href="#" class="alert alert-warning text-decoration-none px-1 py-1">Pas de
+                                        categorie</a>
                                 @endforelse
                                 <h3><a href="{{ route('app_book', $book->id) }}">{{ $book->name }}</a></h3>
 

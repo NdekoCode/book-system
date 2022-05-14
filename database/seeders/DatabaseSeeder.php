@@ -2,8 +2,6 @@
 
 namespace Database\Seeders;
 
-use App\Models\Book;
-use App\Models\User;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -17,7 +15,8 @@ class DatabaseSeeder extends Seeder
     {
         \App\Models\User::factory(10)->create();
         \App\Models\Author::factory(25)->create();
+        \App\Models\Category::factory(10)->create();
         \App\Models\Book::factory(100)->create();
-        \App\Models\Category::factory(15)->create();
+        \App\Models\BookCategory::factory(100)->create();
     }
 }
