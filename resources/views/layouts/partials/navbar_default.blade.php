@@ -1,4 +1,4 @@
-<header class="border-bottom mb-3 p-3">
+<header class="border-bottom p-3">
     <div class="container">
         <div class="d-flex align-items-center justify-content-center justify-content-lg-start flex-wrap">
             <a href="{{ route('app_home') }}"

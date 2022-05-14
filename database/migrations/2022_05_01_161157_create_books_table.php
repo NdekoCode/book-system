@@ -18,7 +18,6 @@ class CreateBooksTable extends Migration
             // Identifiant Unique du livre
             $table->string('ISBN', 60);
             $table->string('name', 100);
-            $table->integer('category');
             $table->string('description', 250);
             $table->string('image_desc');
             $table->foreignId('author_id')->constained();

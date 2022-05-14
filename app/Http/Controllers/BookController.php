@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Author;
 use App\Models\Book;
 use Illuminate\Http\Request;
 
@@ -14,8 +15,10 @@ class BookController extends Controller
     }
     public function show(int $id)
     {
+        $otherBooks = [];
         $book = Book::where('id', $id)->firstOrFail();
-        $otherBooks = Book::where('category', $book->category)->get();
-        return view('pages.books.show', compact('book', 'otherBooks'));
+        $categories = $book->categories;
+        // dd($otherBooks);
+        return view('pages.books.show', compact('book', 'categories', 'otherBooks'));
     }
 }
