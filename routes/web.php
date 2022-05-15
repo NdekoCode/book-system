@@ -23,6 +23,7 @@ Route::get('/contact-nous', [HomeController::class, 'contact'])->name('app_conta
 Route::post('/contact-nous', [HomeController::class, 'contactSend'])->name('app_sendcontact');
 
 Route::get('books', [BookController::class, 'allBooks'])->name('app_books');
+Route::get('book/create', [BookController::class, 'store'])->name('app_bookcreate');
 Route::get('book/{id}', [BookController::class, 'show'])->name('app_book');
 
 Route::get('authors', [AuthorController::class, 'allAuthors'])->name('app_authors');
