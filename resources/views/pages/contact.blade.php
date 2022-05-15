@@ -1,7 +1,6 @@
 @extends('layouts.app')
 @section('content')
     <div class="container">
-        <div class="alert alert-success mt-1">{{ session('success') }}</div>
         <h1>Page Contact</h1>
         <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Perferendis praesentium atque, qui architecto error,
             minima inventore vero dolorem quam reiciendis, molestias ipsam commodi quos. Similique, est. Ipsam, amet

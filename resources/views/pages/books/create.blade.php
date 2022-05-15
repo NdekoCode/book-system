@@ -45,7 +45,7 @@
                 </div>
                 <div class="col-md-7 col-lg-8">
                     <h4 class="mb-3">Details du livre</h4>
-                    <form class="needs-validation" novalidate="" action="" method="post">
+                    <form class="needs-validation" novalidate="" action="" method="post" class="mb-3">
                         @csrf
                         <div class="row g-3">
                             <div class="col-sm-6">
@@ -88,10 +88,6 @@
                             </div>
 
                             <div class="col-12">
-                                <label for="author_id" class="form-label">Auteur du livre</label>
-                                <input type="text" name="author_id"
-                                    class="form-control {{ $errors->has('author_id') ? 'is-invalid' : '' }}"
-                                    id="author_id" placeholder="ex: Jean Luc">
 
                                 <label for="author_id" class="form-label">Auteur du livre</label>
                                 <select class="form-select {{ $errors->has('author_id') ? 'is-invalid' : '' }}"
@@ -119,7 +115,7 @@
                                     Please provide a valid state.
                                 </div>
                             </div> --}}
-                            <div class="col-md-6">
+                            <div class="col-md-6 mb-3">
                                 <label for="description" class="form-label">Description du livre</label>
                                 <textarea name="description" class="form-control {{ $errors->has('description') ? 'is-invalid' : '' }}"
                                     id="description" cols="30" rows="5"></textarea>
@@ -131,9 +127,9 @@
                                 @endif
                             </div>
 
-                            <div class="col-md-6">
+                            <div class="col-md-6 mb-3">
                                 <label for="description" class="form-label">Image de bord du livre</label>
-                                <input type="file" name="image_desc" />
+                                <input type="file" name="image_desc" class="form-control" />
                                 @if ($errors->has('image_desc'))
                                     <div class="invalid-feedback">
                                         {{ $errors->first('image_desc') }}
@@ -142,7 +138,7 @@
                             </div>
 
                         </div>
-                        <button class="w-100 btn btn-primary btn-lg" type="submit">Ajouter votre livre</button>
+                        <button class="w-100 btn btn-primary btn-lg mb-3" type="submit">Ajouter votre livre</button>
                     </form>
                 </div>
             </div>
