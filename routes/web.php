@@ -28,4 +28,6 @@ Route::post('book/create', [BookController::class, 'store'])->name('app_bookstor
 Route::get('book/{id}', [BookController::class, 'show'])->name('app_book');
 
 Route::get('authors', [AuthorController::class, 'allAuthors'])->name('app_authors');
+Route::get('author/create', [AuthorController::class, 'create'])->name('app_authorcreate');
+Route::post('author/create', [AuthorController::class, 'store'])->name('app_authorstore');
 Route::get('author/{id}', [AuthorController::class, 'showAuthor'])->name('app_author');

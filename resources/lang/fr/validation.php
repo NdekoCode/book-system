@@ -88,8 +88,8 @@ return [
         'string' => 'Ce champs ne doit pas depasser :max caracteres.',
         'array' => 'The :attribute must not have more than :max items.',
     ],
-    'mimes' => 'The :attribute must be a file of type: :values.',
-    'mimetypes' => 'The :attribute must be a file of type: :values.',
+    'mimes' => 'Le champ doit etre un fichier de type: :values.',
+    'mimetypes' => 'Le champ doit etre un fichier de type: :values.',
     'min' => [
         'numeric' => 'Le champs doit etre supérieur ou egale à :min.',
         'file' => 'The :attribute must be at least :min kilobytes.',

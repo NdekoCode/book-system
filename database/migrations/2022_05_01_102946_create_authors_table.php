@@ -19,8 +19,10 @@ class CreateAuthorsTable extends Migration
             $table->string('lastname', 120);
             $table->date('birthday')->nullable();
             $table->string('email');
-            $table->string('description', 190);
-            $table->string('avatar');
+            // $table->string('city', 100)->nullable();
+
+            $table->text('description');
+            $table->string('avatar')->nullable();
             $table->timestamps();
         });
     }

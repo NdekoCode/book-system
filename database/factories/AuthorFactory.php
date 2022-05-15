@@ -18,6 +18,8 @@ class AuthorFactory extends Factory
             'firstname' => $this->faker->firstName(),
             'lastname' => $this->faker->lastName(),
             'email' => $this->faker->unique()->safeEmail(),
+            'birthday' => $this->faker->date(),
+            'avatar' => $this->faker->imageUrl(),
             'description' => $this->faker->sentence(10, 15),
         ];
     }
