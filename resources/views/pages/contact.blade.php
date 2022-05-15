@@ -6,7 +6,7 @@
             minima inventore vero dolorem quam reiciendis, molestias ipsam commodi quos. Similique, est. Ipsam, amet
             aliquid! Voluptate.</p>
 
-        <form action="{{ route('app_sendcontact') }}" method="post">
+        <form action="" method="post">
             @csrf
             <div class="mb-3">
                 <label for="emailAdress" class="form-label">Adresse Email</label>

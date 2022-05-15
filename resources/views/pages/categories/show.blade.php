@@ -1,25 +1,14 @@
-@extends('layouts.app',['title'=>"Liste des livres"])
+@extends('layouts.app')
 @section('content')
-    <div class="container">
-        <div class="text-end">
+    <div class="container mt-5">
+        <h1>{{ $category->title }}</h1>
 
-            <a href="{{ route('app_bookcreate') }}" class="btn btn-primary mt-2">Ajouter un livre</a>
-        </div>
         <div class="shop-product-wrap with-pagination row space-db--30 shop-border mt-3 grid">
             @forelse ($books as $book)
                 <div class="col-lg-4 col-sm-6">
                     <div class="product-card mb-5 rounded p-3 shadow" style="min-height: 450px;">
                         <div class="product-grid-content">
                             <div class="product-header">
-                                @forelse($book->categories as $cat)
-                                    <a href="{{ route('app_category', $cat->id) }}"
-                                        class="alert alert-info text-decoration-none m-1 px-1 py-1">
-                                        {{ $cat->title }}
-                                    </a>
-                                @empty
-                                    <a href="#" class="alert alert-warning text-decoration-none px-1 py-1">Pas de
-                                        categorie</a>
-                                @endforelse
                                 <h3><a href="{{ route('app_book', $book->id) }}">{{ $book->name }}</a></h3>
 
                                 <article class="book-detail-hover">
