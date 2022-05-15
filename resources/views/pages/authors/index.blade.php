@@ -40,6 +40,10 @@
             @empty
                 <div class="alert alert-infos">Pas d'auteur dans la base de donnée</div>
             @endforelse
+            <div class="pagination justify-content-center flex-column align-items-center">
+                {{ $authors->links() }}
+                <p> {{ $authors->count() }} elements</p>
+            </div>
         </div>
     </div>
 @endsection

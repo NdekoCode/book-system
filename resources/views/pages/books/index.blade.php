@@ -49,6 +49,11 @@
                     Pas de livre disponible
                 </div>
             @endforelse
+            <div class="pagination justify-content-center flex-column align-items-center">
+                {{-- Pour charger le template de la pagination, par defaut le template est utiliser avec TailwindCSS mais on peux utiliser boostrap en faisant une modification dans les providers --}}
+                {{ $books->links() }}
+                <p> {{ $books->count() }} elements</p>
+            </div>
         </div>
     </div>
 @endsection

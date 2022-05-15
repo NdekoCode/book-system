@@ -11,7 +11,7 @@ class BookController extends Controller
 {
     public function allBooks()
     {
-        $books = Book::orderBy('created_at', 'desc')->get();
+        $books = Book::latest()->paginate(9);
         return view('pages.books.index', compact('books'));
     }
     public function show(int $id)

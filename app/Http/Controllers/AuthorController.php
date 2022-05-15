@@ -10,7 +10,7 @@ class AuthorController extends Controller
 
     public function allAuthors()
     {
-        $authors = Author::orderBy('created_at', 'DESC')->get();
+        $authors = Author::latest()->paginate(9);
         return view('pages.authors.index', compact('authors'));
     }
     public function showAuthor(int $id)
