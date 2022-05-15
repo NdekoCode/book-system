@@ -1,8 +1,11 @@
 @extends('layouts.app',['title'=>"Liste des livres"])
 @section('content')
     <div class="container">
+        <div class="text-end">
 
-        <div class="shop-product-wrap with-pagination row space-db--30 shop-border mt-5 grid">
+            <a href="{{ route('app_bookcreate') }}" class="btn btn-primary mt-2">Ajouter un livre</a>
+        </div>
+        <div class="shop-product-wrap with-pagination row space-db--30 shop-border mt-3 grid">
             @forelse ($books as $book)
                 <div class="col-lg-4 col-sm-6">
                     <div class="product-card mb-5 rounded p-3 shadow">
@@ -26,7 +29,7 @@
                             </div>
                             <div class="product-card--body">
                                 <div class="card-image">
-                                    <img src="{{ $book->image_desc }}" alt="{{ $book->name }}"
+                                    <img src="{{ url($book->image_desc) }}" alt="{{ $book->name }}"
                                         style="width:100%;height:auto;">
                                     <div>
                                         Book detai button eg.add-to-card

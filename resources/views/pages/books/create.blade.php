@@ -7,6 +7,8 @@
                 <p class="lead">Below is an example form built entirely with Bootstrap’s form controls. Each
                     required form group has a validation state that can be triggered by attempting to submit the form
                     without completing it.</p>
+
+                {{ $errors }}
             </div>
 
             <div class="row g-5">
@@ -45,13 +47,15 @@
                 </div>
                 <div class="col-md-7 col-lg-8">
                     <h4 class="mb-3">Details du livre</h4>
-                    <form class="needs-validation" novalidate="" action="" method="post" class="mb-3">
+                    <form class="needs-validation" novalidate="" action="" method="post" class="mb-3"
+                        enctype="multipart/form-data">
                         @csrf
                         <div class="row g-3">
                             <div class="col-sm-6">
                                 <label for="name" class="form-label">Nom du livre</label>
                                 <input type="text" class="form-control {{ $errors->has('name') ? 'is-invalid' : '' }}"
-                                    id="name" placeholder="Titre du livre" value="" name="name" required="">
+                                    id="name" placeholder="Titre du livre" value="{{ old('name') }}" name="name"
+                                    required="">
                                 @if ($errors->has('name'))
                                     <div class="invalid-feedback">
                                         {{ $errors->first('name') }}
@@ -62,7 +66,8 @@
                             <div class="col-sm-6">
                                 <label for="isbn" class="form-label">ISBN du livre</label>
                                 <input type="text" class="form-control {{ $errors->has('isbn') ? 'is-invalid' : '' }}"
-                                    id="isbn" placeholder="code ISBN du livre" value="" name="isbn" required="">
+                                    id="isbn" placeholder="code ISBN du livre" value="{{ old('isbn') }}" name="isbn"
+                                    required="">
                                 @if ($errors->has('isbn'))
                                     <div class="invalid-feedback">
                                         {{ $errors->first('isbn') }}
@@ -74,9 +79,10 @@
                                 <label for="price" class="form-label">Prix du livre</label>
                                 <div class="input-group">
                                     <span class="input-group-text">$</span>
-                                    <input type="number" pattern="0.001"
+                                    <input type="number" step="0.01"
                                         class="form-control {{ $errors->has('price') ? 'is-invalid' : '' }}" id="price"
-                                        placeholder="Le prix du livre" required="">
+                                        name="price" placeholder="Le prix du livre" value="{{ old('price') }}"
+                                        required="">
 
                                     @if ($errors->has('price'))
                                         <div class="invalid-feedback">
@@ -87,20 +93,43 @@
 
                             </div>
 
-                            <div class="col-12">
+                            <div class="col-md-6 mb-3">
 
                                 <label for="author_id" class="form-label">Auteur du livre</label>
                                 <select class="form-select {{ $errors->has('author_id') ? 'is-invalid' : '' }}"
-                                    id="author_id" required="">
-                                    <option value="" selected disabled>Choisir un auteur...</option>
+                                    id="author_id" required="" name="author_id">
+                                    <option value="" {{ old('author_id') ? '' : 'selected' }} disabled>Choisir un
+                                        auteur...</option>
                                     @foreach ($authors as $author)
-                                        <option value="{{ $author->id }}">{{ $author->firstname }}
+                                        <option value="{{ $author->id }}"
+                                            {{ old('author_id') === $author->id ? 'selected' : '' }}>
+                                            {{ $author->firstname }}
                                             {{ $author->lastname }}</option>
                                     @endforeach
                                 </select>
                                 @if ($errors->has('author_id'))
                                     <div class="invalid-feedback">
                                         {{ $errors->first('author_id') }}
+                                    </div>
+                                @endif
+                            </div>
+
+                            <div class="col-md-6 mb-3">
+                                <label for="category_id" class="form-label">Categorie du livre</label>
+                                <select multiple
+                                    class="form-select {{ $errors->has('category_id') ? 'is-invalid' : '' }}"
+                                    id="author_id" required="" name="category_id[]">
+                                    <option value="" {{ old('category_id') ? '' : 'selected' }} disabled>Choisir la
+                                        categorie...</option>
+                                    @foreach ($categories as $category)
+                                        <option value="{{ $category->id }}"
+                                            {{ old('category_id') === $category->id ? 'selected' : '' }}>
+                                            {{ $category->title }}</option>
+                                    @endforeach
+                                </select>
+                                @if ($errors->has('category_id'))
+                                    <div class="invalid-feedback">
+                                        {{ $errors->first('category_id') }}
                                     </div>
                                 @endif
                             </div>
@@ -118,7 +147,7 @@
                             <div class="col-md-6 mb-3">
                                 <label for="description" class="form-label">Description du livre</label>
                                 <textarea name="description" class="form-control {{ $errors->has('description') ? 'is-invalid' : '' }}"
-                                    id="description" cols="30" rows="5"></textarea>
+                                    id="description" cols="30" rows="5">{{ old('description') }}</textarea>
 
                                 @if ($errors->has('description'))
                                     <div class="invalid-feedback">
@@ -129,7 +158,8 @@
 
                             <div class="col-md-6 mb-3">
                                 <label for="description" class="form-label">Image de bord du livre</label>
-                                <input type="file" name="image_desc" class="form-control" />
+                                <input type="file" name="image_desc"
+                                    class="form-control {{ $errors->has('image_desc') ? 'is-invalid' : '' }}" />
                                 @if ($errors->has('image_desc'))
                                     <div class="invalid-feedback">
                                         {{ $errors->first('image_desc') }}
