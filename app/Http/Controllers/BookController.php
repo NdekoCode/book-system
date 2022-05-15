@@ -47,8 +47,9 @@ class BookController extends Controller
             $profileImage = $path . date('YmdHis') . '-' . $request->name . '.' . $image->getClientOriginalExtension();
             $image->move($path, $profileImage);
             $bookData['image_desc'] = $profileImage;
-
+            // Je recherche dans la table categories les categories correspondantes aux champ 'category_id'
             $category = Category::find($request->category_id);
+            // Je creer un livre ou je stock un nouveau livre dans ma BD auquel j'attache les categories ou la category correspondante dans le formulaire
             Book::create($bookData)->categories()->attach($category);
 
 
